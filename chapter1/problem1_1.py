@@ -1,6 +1,6 @@
+import sys
 
-
-def IsUnique(word):
+def IsUnique1(word):
     recorded_characters = []
 
     for character in word:
@@ -10,6 +10,13 @@ def IsUnique(word):
     return True
     
 
+def IsUnique2(word):
+    seen_characters = [False] * 256
+    for character in word:
+        if seen_characters[ord(character)]:
+            return False
+        seen_characters[ord(character)] = True
+    return True
 
 
 
@@ -19,8 +26,8 @@ def main():
     Hints: #44, #117, #132
     '''
     
-    print(IsUnique("Hello World"))
-    print(IsUnique("World"))
+    print(IsUnique1(sys.argv[1]))
+    print(IsUnique2(sys.argv[1]))
 
 
 

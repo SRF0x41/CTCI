@@ -6,7 +6,7 @@ size_t isUnique(string word){
 	size_t word_length = sizeof(&word) / sizeof(char*);
 }
 
-int main() {
-    cout << isUnique("sexxi");
-    return 0;
+int main(int argc, char* argv[]) {
+
+    
 }
