@@ -8,9 +8,10 @@ int isUnique(string word){
     int seen_characters[256];
 
     // Setting all seen characters to false
-    for(size_t i = 0; i < sizeof(seen_characters) / sizeof(seen_characters[0]); i++){
+    for(size_t i = 0; i < (sizeof(seen_characters) / sizeof(seen_characters[0])); i++){
         seen_characters[i] = 0;
     }
+
 
     for(int i = 0; i < word.length(); i++){
         if(seen_characters[word.at(i)]){
@@ -18,12 +19,23 @@ int isUnique(string word){
         }
         seen_characters[word.at(i)] = 1;
     }
+
+
+    for(size_t i = 0; i < (sizeof(seen_characters) / sizeof(seen_characters[0])); i++){
+        cout << seen_characters[i];
+    }
     return 1;
 }
 
 int main(int argc, char* argv[]) {
 
-    cout << isUnique(argv[1]);
+    if(isUnique(argv[0])){
+        cout << "True" << '\n';
+    } else {
+        cout << "False" << '\n';
+    }
+
+    return 0;
 
 
 }
