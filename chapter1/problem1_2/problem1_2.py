@@ -9,6 +9,8 @@ def checkPermutation_1(word1,word2):
             return False
     return True
 
+def checkPermutation_2(word1,word2):
+    pass
 
 
 
