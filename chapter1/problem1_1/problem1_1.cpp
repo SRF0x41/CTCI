@@ -3,8 +3,6 @@
 using namespace std;
 
 int isUnique(string word){
-	//cout << word << '\n';
-    //cout << word.length() << '\n';
     int seen_characters[256];
 
     // Setting all seen characters to false
@@ -19,17 +17,12 @@ int isUnique(string word){
         }
         seen_characters[word.at(i)] = 1;
     }
-
-
-    for(size_t i = 0; i < (sizeof(seen_characters) / sizeof(seen_characters[0])); i++){
-        cout << seen_characters[i];
-    }
     return 1;
 }
 
 int main(int argc, char* argv[]) {
 
-    if(isUnique(argv[0])){
+    if(isUnique(argv[1])){
         cout << "True" << '\n';
     } else {
         cout << "False" << '\n';
