@@ -8,9 +8,13 @@ public class problem1_4 {
     Hints: #106, h 0134, § 136 */
 
     public static void main(String[] args){
+	if(args.length == 0){
+		System.out.println("No argument provided");
+		return;
+	}
         String input = args[0];
 
-        System.err.println(Problem1_4_BF(input));
+        System.err.println(Problem1_4_BF(input.toLowerCase()));
 
 
     }
@@ -31,7 +35,12 @@ public class problem1_4 {
                 }
             }
         }
+
+	// for(int i = 0; i < char_lib.length; i++){
+	// 	System.out.print((char)(i) + ":" + char_lib[i]);
+	// }
+	System.out.println("Mismatched Characters: (0 or 1 ensure a permutation) " + character_count);
         
-        return !(character_count >= 1);
+        return !(character_count > 1);
     }
 }
