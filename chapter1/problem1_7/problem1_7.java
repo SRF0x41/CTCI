@@ -1,88 +1,47 @@
 
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
 
 public class problem1_7 {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         /*Rotate Matrix: Given an image represented by an NxN matrix, where each pixel in the image is 4
         bytes, write a method to rotate the image by 90 degrees. Can you do this in place? */
-
-        // if(args.length < 2){
-        //     System.out.println("Not enought arguments");
-        //     return;
-        // }
-
-        // BufferedImage image;
-        // int min;
-        // try {
-        //     image = ImageIO.read(new File(args[0]));
-        //     int height = image.getHeight();
-        //     int width = image.getWidth();
-        //     min = Math.min(height, width);
-        //     image = image.getSubimage(0, 0, min,min);
-        // } catch (Exception e) {
-        //     System.out.println("Inavlid image ");
-        //     return;
-        // }
-
-        // // single dimmension byte array
-    
-        // byte[] pixels = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
-        // byte[][] pixel_matrix = new byte[min][min];
-
-        // for(int row = 0; row < min; row++){
-        //     for(int col = 0; col < min; col++){
-        //         pixel_matrix[row][col] = pixels[(row*min) + col];
-        //     }
-        // }
-
-
-
-        // /*  1234
-        //  *  5678
-        //  *  
-        //  *  51
-        //  *  62
-        //  *  73
-        //  *  84
-        //  */
-
-        
-
 
     }
 
 
-
+    public static int[][] generateMatrix() {
+        int min = 3; // Minimum value (inclusive)
+        int max = 3; // Maximum value (inclusive)
+        int randRow = (int) (Math.random() * (max - min + 1) + min);
+        int randCol = (int) (Math.random() * (max - min + 1) + min);
+        int[][] m = new int[randRow][randCol];
+        for(int row = 0; row < randRow; row++){
+            for(int col = 0; col < randCol; col++){
+                int rand = (int) (Math.random() * 10);
+                m[row][col] = rand;
+            }
+        }
+        return m;
+    }
     public static void problem1_7_BF(byte[][] matrix){
 
     }
 
-    public static int[][] transposeMatrix(int[][] matrix){
+    public static void printMatrix(int[][] m){
+        String RED = "\u001B[31m";
+        String RESET = "\u001B[0m"; 
+        int rows = m.length;
+        int cols = m[0].length;
 
-    }
-
-    public static BufferedImage MatrixToImage(byte[][] matrix){
-        int x = matrix.length;
-        byte[] raw_bytes = new byte[x*x];
-        for(int i = 0; i < x*x; i++){
-            raw_bytes[i] = matrix[i / x][i];
+        for(int row = 0; row < rows; row++){
+            for(int col = 0; col < cols; col++){
+               
+                    System.out.print(m[row][col]);
+                
+            }
+            System.out.println("");
         }
-        BufferedImage image = null;
-        try {
-            ByteArrayInputStream bim = new ByteArrayInputStream(raw_bytes);
-            image = ImageIO.read(bim);
-            bim.close();
-        } catch (Exception e) {
-        }
-        
-        
-        return image;
     }
+    
 }
