@@ -1,4 +1,3 @@
-import java.util.Hashtable;
 import java.util.HashSet;
 public class problem1_2 {
 	public static void main(String[] args) {
